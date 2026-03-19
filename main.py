@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 from sklearn.ensemble import IsolationForest
-
+import matplotlib.pyplot as plt
 
 def generate_data(n=200):
     np.random.seed(42)
@@ -40,10 +40,17 @@ def main():
 
     print(df.tail(10))
 
+    plt.scatter(df["temperature"], df["pressure"], c=df["anomaly"])
+    plt.xlabel("Temperature")
+    plt.ylabel("Pressure")
+    plt.title("Anomaly Detection")
+    plt.show()
+
     df.to_csv("data/output.csv", index=False)
     print("Gespeichert in data/output.csv")
 
 
 if __name__ == "__main__":
     main()
+
 
