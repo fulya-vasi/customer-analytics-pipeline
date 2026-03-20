@@ -1,23 +1,32 @@
-# Data Anomaly Detection Pipeline (Python)
+# Customer Churn Prediction Pipeline (Python)
 
 ## Context
 
-This project is inspired by my Bachelor thesis on AI-based anomaly detection in critical infrastructure systems (e.g., water supply and SCADA systems).  
-It demonstrates a simplified prototype of how anomalies in sensor data can be detected using machine learning.
+This project simulates a customer analytics use case and demonstrates how machine learning can be used to identify customers with a high churn risk.
+
+It is designed as a simple end-to-end analytics and prediction pipeline with a business-oriented focus.
 
 ## Overview
 
-This project simulates sensor data (e.g. temperature, pressure, vibration, humidity) and detects anomalies using a machine learning model.
+The project generates synthetic customer data, stores it in SQLite, trains a machine learning model, predicts churn risk, and provides basic business insights through summary analysis and visualizations.
 
-It represents a simple end-to-end data pipeline including data ingestion, processing, anomaly detection, and data export.
+It combines elements of:
 
-The implementation focuses on clean, modular Python code and reproducible data processing.
+- data generation
+- data storage
+- machine learning
+- prediction
+- business analysis
+- visualization
 
-This pipeline follows an ETL-like workflow and can be extended to integrate real-world data sources such as APIs or databases.
+## Use Case
 
-## Data Pipeline
+The project is inspired by common analytics use cases such as:
 
-<img src="images/pipeline-diagram.png" width="900">
+- identifying customers with high churn risk
+- supporting retention strategies
+- prioritizing follow-up actions for at-risk customers
+- improving customer analytics with interpretable model outputs
 
 ## Technologies
 
@@ -25,39 +34,46 @@ This pipeline follows an ETL-like workflow and can be extended to integrate real
 - pandas
 - numpy
 - scikit-learn
+- SQLite
 - matplotlib
-- logging
+- joblib
 
-## What it does
+## Pipeline Steps
 
-- Generates synthetic sensor data  
-- Injects artificial anomalies  
-- Applies anomaly detection using Isolation Forest  
-- Logs pipeline execution  
-- Visualizes the results  
-- Exports processed data to CSV  
+1. Generate synthetic customer data
+2. Store structured data in SQLite
+3. Train a Random Forest classification model
+4. Predict churn risk
+5. Export predictions to CSV
+6. Save the trained model
+7. Analyze customer groups by predicted churn risk
+8. Visualize churn distribution
+9. Visualize feature importance
+10. Predict churn risk for a new customer example
 
-## Output
+## Project Structure
 
-The results are stored in:
-
-- `data/raw_data.csv` (full dataset)  
-- `data/anomalies.csv` (detected anomalies)  
-
-The column `anomaly` contains:
-- `1` = normal value  
-- `-1` = anomaly  
-
-## Example Output
-
-### Visualization
-<img src="images/anomaly-plot.png" alt="Anomaly Plot" width="400">
-
-### Console Output
-<img src="images/output-console.png" alt="Console Output" width="400">
-
-## Run the project
-
-```bash
-pip install -r requirements.txt
-python main.py
+```text
+customer-analytics-pipeline/
+├── data/
+│   ├── customer_data.db
+│   ├── churn_predictions.csv
+│   ├── churn_distribution.png
+│   └── feature_importance.png
+├── models/
+│   └── risk_model.pkl
+├── src/
+│   ├── generate_data.py
+│   ├── storage.py
+│   ├── recommendation_model.py
+│   ├── evaluate.py
+│   ├── export.py
+│   ├── visualize.py
+│   ├── feature_importance.py
+│   ├── save_model.py
+│   ├── predict.py
+│   ├── analysis.py
+│   └── metrics.py
+├── main.py
+├── requirements.txt
+└── README.md
