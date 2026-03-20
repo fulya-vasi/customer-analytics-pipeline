@@ -7,13 +7,13 @@ It demonstrates a simplified prototype of how anomalies in sensor data can be de
 
 ## Overview
 
-This project simulates sensor data (e.g. temperature and pressure) and detects anomalies using a machine learning model.
+This project simulates sensor data (e.g. temperature, pressure, vibration, humidity) and detects anomalies using a machine learning model.
 
-It reflects a simple end-to-end data pipeline from data ingestion to anomaly detection and export.
+It represents a simple end-to-end data pipeline including data ingestion, processing, anomaly detection, and data export.
 
-The implementation focuses on clean and modular Python code as well as reproducible data processing.
+The implementation focuses on clean, modular Python code and reproducible data processing.
 
-This pipeline demonstrates a simplified ETL-like workflow and can be extended to ingest real data from APIs or databases.
+This pipeline follows an ETL-like workflow and can be extended to integrate real-world data sources such as APIs or databases.
 
 ## Data Pipeline
 
@@ -26,20 +26,23 @@ This pipeline demonstrates a simplified ETL-like workflow and can be extended to
 - numpy
 - scikit-learn
 - matplotlib
+- logging
 
 ## What it does
 
-- Generates synthetic sensor data
-- Injects artificial anomalies
-- Applies anomaly detection using Isolation Forest
-- Visualizes the results
-- Exports processed data to CSV
+- Generates synthetic sensor data  
+- Injects artificial anomalies  
+- Applies anomaly detection using Isolation Forest  
+- Logs pipeline execution  
+- Visualizes the results  
+- Exports processed data to CSV  
 
 ## Output
 
 The results are stored in:
 
-`data/output.csv`
+- `data/raw_data.csv` (full dataset)  
+- `data/anomalies.csv` (detected anomalies)  
 
 The column `anomaly` contains:
 - `1` = normal value  
